@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google';
-import { RecoilRoot } from 'recoil';
 import './globals.css';
+import RecoilProvider from './recoil/Provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -11,11 +11,11 @@ export const metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <RecoilRoot>
-      <html lang="en">
-        <body className={inter.className}>{children}</body>
-      </html>
-    </RecoilRoot>
+    <html lang="en">
+      <body className={`${inter.className} flex justify-center items-center`}>
+        <RecoilProvider>{children}</RecoilProvider>
+      </body>
+    </html>
   );
 };
 
